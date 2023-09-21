@@ -4,9 +4,7 @@ Function to generate yolo training dataset structure.
 ## Instalation
 ```
 git clone https://github.com/LucasLCO/yolo_train_structure
-mv yolo_train_structure/yolo_structure_gen.py ..
 ```
-
 
 ## Example
 ```python
