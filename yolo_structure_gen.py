@@ -3,15 +3,14 @@ from pathlib import Path
 def gen_names_string(names_dict):
     string = ""
     for key in names_dict:
-        string += f"   {key}: {names_dict[key]}\n"
+        string += f"\t{key}: {names_dict[key]}\n"
     return string
 
 def gen_yaml_info(train_images_path, val_images_path, names_dict):
-    data_info = f"""train: {str(train_images_path.absolute())}
-    val: {str(val_images_path.absolute())}
-    names:
-    {gen_names_string(names_dict)}
-    """
+    data_info = f"train: {str(train_images_path.absolute())}\n"
+    data_info += f"val: {str(val_images_path.absolute())}\n"
+    data_info += f"names:\n"
+    data_info += f"{gen_names_string(names_dict)}"
     return data_info
 
 def gen_paths(names_dict):
