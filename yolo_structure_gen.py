@@ -31,3 +31,5 @@ def gen_dataset_dir(names_dict):
     val_labels_path.mkdir(parents=True, exist_ok=True)
     data_yaml_path.touch(exist_ok=True)
     data_yaml_path.write_text(data_info)
+    return (train_images_path, train_labels_path, val_images_path,
+            val_labels_path, data_yaml_path)
