@@ -8,7 +8,7 @@ git clone https://github.com/LucasLCO/yolo_train_structure
 
 ## Example
 ```python
-from yolo_structure_gen import gen_dataset_dir
+from yolo_train_structure import gen_dataset_dir
 
 names_dict = {
     0: "people",
