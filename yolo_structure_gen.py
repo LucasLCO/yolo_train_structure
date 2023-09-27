@@ -3,7 +3,7 @@ from pathlib import Path
 def gen_names_string(names_dict):
     string = ""
     for key in names_dict:
-        string += f"\t{key}: {names_dict[key]}\n"
+        string += f"  {key}: {names_dict[key]}\n"
     return string
 
 def gen_yaml_info(train_images_path, val_images_path, names_dict):
