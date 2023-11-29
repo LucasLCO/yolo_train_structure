@@ -1,6 +1,10 @@
+import sys
+
 from sklearn.model_selection import train_test_split
-from yolo_train_structure import gen_dataset_dir
 from pathlib import Path
+
+sys.path.append("./")
+from .yolo_structure_gen import gen_dataset_dir
 
 def remove_no_label(images_path, labels_path):
     images_path_no_ext = [image.stem for image in  images_path.iterdir()]
