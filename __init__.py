@@ -1,1 +1,1 @@
-from .yolo_structure_gen import gen_dataset_dir
+from .split import split_data

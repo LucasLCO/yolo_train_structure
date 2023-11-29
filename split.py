@@ -16,6 +16,7 @@ def create_dirs(images, labels, test):
         0: "helmet",
         1: "no-helmet"
     }
+
     X_train_paths, X_val_paths, y_train_paths, y_val_paths = train_test_split(images, labels, test_size=0.25, random_state=42)
 
     if test:
