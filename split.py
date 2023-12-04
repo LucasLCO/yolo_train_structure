@@ -15,12 +15,7 @@ def remove_no_label(images_path, labels_path):
 
     return images_with_labels
 
-def create_dirs(images, labels, test):
-    names_dict = {
-        0: "helmet",
-        1: "no-helmet"
-    }
-
+def create_dirs(images, labels, test, names_dict):
     X_train_paths, X_val_paths, y_train_paths, y_val_paths = train_test_split(images, labels, test_size=0.25, random_state=42)
 
     if test:
@@ -43,7 +38,7 @@ def copy_files(images_destination, labels_destination, images_paths, labels_path
         image_destination.write_bytes(image.read_bytes())
         label_destination.write_bytes(label.read_bytes())
 
-def split_data(path_to_images, path_to_labels, test):
+def split_data(path_to_images, path_to_labels, test, names_dict):
     images_path = Path(path_to_images)
     labels_path = Path(path_to_labels)
 
@@ -54,12 +49,12 @@ def split_data(path_to_images, path_to_labels, test):
 
     if test: 
         (X_train_paths, X_val_paths, X_test_paths, y_train_paths, y_val_paths, y_test_paths,
-        train_images_path, train_labels_path, val_images_path, val_labels_path, test_images_path, test_labels_path) = create_dirs(images, labels, True)
+        train_images_path, train_labels_path, val_images_path, val_labels_path, test_images_path, test_labels_path) = create_dirs(images, labels, True, names_dict)
         copy_files(test_images_path, test_labels_path, X_test_paths, y_test_paths)
 
     else:
         (X_train_paths, X_val_paths, y_train_paths, y_val_paths,
-        train_images_path, train_labels_path, val_images_path, val_labels_path) = create_dirs(images, labels, False)
+        train_images_path, train_labels_path, val_images_path, val_labels_path) = create_dirs(images, labels, False, names_dict)
 
     copy_files(val_images_path, val_labels_path, X_val_paths, y_val_paths)
     copy_files(train_images_path, train_labels_path, X_train_paths, y_train_paths)
