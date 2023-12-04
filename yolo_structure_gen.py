@@ -10,7 +10,7 @@ def gen_yaml_info(images_path, names_dict, test):
     data_info = f"train: {str(images_path.absolute())}/train\n"
     data_info += f"val: {str(images_path.absolute())}/val\n"
     if test:
-        data_info += f"val: {str(images_path.absolute())}/test\n"
+        data_info += f"test: {str(images_path.absolute())}/test\n"
     data_info += f"names:\n"
     data_info += f"{gen_names_string(names_dict)}"
     return data_info
